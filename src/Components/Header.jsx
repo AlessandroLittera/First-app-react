@@ -14,6 +14,6 @@ const Header = (props) => {
 Header.prototype = { 
     children: PropTypes.node 
 }
-
+  
 export default Header;
 

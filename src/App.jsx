@@ -11,7 +11,7 @@ function App() {
         <Router>
             <MyPage path="/" />
             <Description path="/description" />
-            <Login path="/login"/>
+            <Login path="/login" />
         </Router>
     );
 }

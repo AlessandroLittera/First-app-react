@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-
+import Cookies from 'js-cookie';
 import { navigate } from "@reach/router";
+
 import Layout from "../Components/Layout.jsx";
+import onlyNotLogUser from "../hoc/onlyNotLogUser.js";
 
 const appStyle = {
     height: '250px',
@@ -12,19 +14,19 @@ const appStyle = {
 const Forma = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    
     function validateForm() {
         return email.length > 0 && password.length > 0;
     }
 
-    function handleSubmit(event) {
-        //return window.open("/");
+    function saveCredential() {
+        Cookies.set('isUserLogged', email);
         return navigate("/");
     }
 
     return (
         <div className="appStyle">
-            <Form onSubmit={handleSubmit} className="formStyle">
+            <Form className="formStyle">
                 <Form.Group size="lg" controlId="email">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
@@ -42,7 +44,7 @@ const Forma = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </Form.Group>
-                <button class="submitStyle" block size="lg" to="/" type="submit" disabled={!validateForm()}>
+                <button className="submitStyle" block size="lg" type="submit" onClick={saveCredential} disabled={!validateForm()}>
                     Login
                 </button>
             </Form>
@@ -50,7 +52,7 @@ const Forma = () => {
     );
 }
 
-export default function Login() {
+function Login() {
 
     return (
         <Layout>
@@ -60,3 +62,5 @@ export default function Login() {
         </Layout>
     );
 };
+
+ export default onlyNotLogUser(Login)

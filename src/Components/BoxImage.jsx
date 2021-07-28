@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const BoxImage = (props) => {
+import Button from "./Button.jsx";
 
-    if (props.enableImage) {
-        return <img src='/logo192.png' alt='shirt' />
-    }else{
-        return <img src='/logo512.png' alt='LOGO' />
+const BoxImage = () => {
+    let image
+    const [switchImage, setSwitchImage] = useState(false);
+
+    if (switchImage) {
+        image = '/image/avatar.PNG'
+    } else {
+        image = '/image/persona.jpg'
     }
+
+    return (
+        <div style={{display:"flex", flexDirection:"column"}}>
+            <Button onClick={() => { setSwitchImage(!switchImage) }} />
+            <img src={image} alt='image' />
+        </div>
+    )
 
 }
 
 BoxImage.prototype = {
-    enableImage : PropTypes.bool,
+
 }
 
 export default BoxImage;

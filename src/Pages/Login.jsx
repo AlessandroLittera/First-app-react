@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 
-import { Link, navigate } from "@reach/router";
+import { navigate } from "@reach/router";
 import Layout from "../Components/Layout.jsx";
 
 const appStyle = {
@@ -9,7 +9,7 @@ const appStyle = {
     display: 'flex'
 };
 
-const Forma = ({ onSubmit }) => {
+const Forma = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -44,21 +44,18 @@ const Forma = ({ onSubmit }) => {
                 </Form.Group>
                 <button class="submitStyle" block size="lg" to="/" type="submit" disabled={!validateForm()}>
                     Login
-          </button>
+                </button>
             </Form>
         </div>
     );
 }
 
 export default function Login() {
-    const handleSubmit = data => {
-        <Link to="/" />
-        console.log("eccolo");
-    };
+
     return (
         <Layout>
             <div style={appStyle}>
-                <Forma onSubmit={handleSubmit} />
+                <Forma />
             </div>
         </Layout>
     );

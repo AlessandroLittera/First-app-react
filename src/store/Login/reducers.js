@@ -9,7 +9,6 @@ const initialState = {
 export default function counter(state = initialState, action) {
     switch (action.type) {
         case BEGIN_LOGIN:
-        console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
             return {
                 data: '',
                 pending: true,
@@ -18,7 +17,7 @@ export default function counter(state = initialState, action) {
             }
         case LOGIN_SUCCESS:
             return {
-                data: action.payload.email,
+                data: action.payload,
                 pending: false,
                 error: null,
                 initialState: false

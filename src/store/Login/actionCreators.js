@@ -9,10 +9,9 @@ const beginLogin = () => {
 }
 
 const loginSuccess = (email) => {
-    console.log("email: ", email);
     return {
         type: LOGIN_SUCCESS,
-        payload: { email }
+        payload: { email: email }
     }
 }
 
@@ -27,10 +26,8 @@ const errorLogin = (error) => {
 export const checkLogin = (email) => {
     // described below in “Async Action Creators” section.
     return (dispatch) => {
-        console.log("dispatch");
         dispatch(beginLogin());
         try {
-            console.log("corretto");
             dispatch(loginSuccess(email))
         } catch (error) {
             dispatch(errorLogin(error))

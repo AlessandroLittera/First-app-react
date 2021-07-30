@@ -21,7 +21,7 @@ const LoginWithUsername = props => {
         return navigate("/");
     }
 
-
+    
     return (
         <div className="appStyle">
             <form className="formStyle">
@@ -51,7 +51,9 @@ LoginWithUsername.propTypes = {
     onChangeLogin: PropTypes.func,
 }
 
-const mapStateToProps = () => ({})
+const mapStateToProps = () => ({
+
+})
 
 
 const mapDispatchToProps = dispatch => ({

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import BoxImage from '../Components/BoxImage.jsx';
 import Layout from '../Components/Layout.jsx';

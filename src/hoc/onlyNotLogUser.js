@@ -5,7 +5,6 @@ import { Redirect } from "@reach/router";
 
     const Logout = function () {
         if(Cookies.get("isUserLogged")){
-            
             return <Redirect to="/description" noThrow />
         }else{
            return <WrappedComponent/> 
